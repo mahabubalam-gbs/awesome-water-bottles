@@ -15,13 +15,14 @@ const Bottles = ({ bottlesPromise }) => {
         const storedCart = [];
 
         for (const id of StoredCartIds) {
-            console.log(id)
             const cartBottle = bottles.find(bottle => bottle.id === id);
             if (cartBottle) {
                 storedCart.push(cartBottle);
             }
         }
+
         setCart(storedCart);
+
     }, [bottles])
 
     const handleAddToCart = (bottle) => {
@@ -32,11 +33,20 @@ const Bottles = ({ bottlesPromise }) => {
         addToStoredCart(bottle.id)
     }
 
+    const handleRemoveCart = (id) => {
+        console.log('remove item from the cart', id);
+        const remainingCart = cart.filter(bottle => bottle.id !== id);
+        setCart(remainingCart)
+    }
+
     return (
         <div>
             <h3>Bottles: {bottles.length}</h3>
             <p>Added to cart: {cart.length}</p>
-            <Cart cart={cart}></Cart>
+            <Cart
+                handleRemoveCart={handleRemoveCart}
+                cart={cart}
+            ></Cart>
             <div className='bottles-container '>
                 {
                     bottles.map(bottle => <Bottle
