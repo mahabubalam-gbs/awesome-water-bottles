@@ -37,6 +37,13 @@ Conditional rendering
 Working with fake JSON data
 
 
+# Author
+
+Md Mahabub Alam
+```
+https://github.com/mahabubalam-gbs
+```
+
 ## Project Screenshots
 ![Home Page](src/assets/home-page.png)
 ![Home Page](src/assets/bottle-cart.png)
